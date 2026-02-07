@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="dashboard">
+        <div class="info-card">
+            <label>Left Weight</label>
+            <div class="value"><span id="left-weight">0</span></div>
+        </div>
+
+        <div class="info-card highlight">
+            <label>Balance Angle</label>
+            <div class="value"><span id="angle">0</span> </div>
+        </div>
+
+        <div class="info-card">
+            <label>Right Weight</label>
+            <div class="value"><span id="right-weight">0</span></div>
+        </div>
+    </div>
+    <div class="reset-container">
+        <button id="reset-btn" class="info-card reset-card">
+            <label>Simulation</label>
+            <div class="value">RESET</div>
+        </button>
+    </div>
+    <div class="page">
+        <div class="seesaw">
+            <div class="plank" id="plank">
+                <div id="objects"></div>
+            </div>
+            <div class="pivot"></div>
+        </div>
+    </div>
+    <script src="seesaw.js"></script>
+</body>
+
+</html>
