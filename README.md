@@ -1,7 +1,6 @@
 ## ⚖️ ***Interactive SeeSaw Simulation***
 An interactive, modern, and high-performance seesaw simulation that calculates real-time torque physics. Users can place various weights on a plank to observe physical balance shifts through both visual feedback and live data dashboard.
-
-
+![image](https://github.com/Caglakucuk/CaglaKucukSeesaw/blob/main/Ekran%20Resmi%202026-02-08%2000.20.06.png)
 ### ✨ Key Features
 • **Real-Time Physics Engine:** Calculates instantaneous balance and inclination using the torque formula (Torque=Force×Distance) based on each weight's distance from the pivot.
 
@@ -16,6 +15,8 @@ An interactive, modern, and high-performance seesaw simulation that calculates r
 • **Torque-Responsive Smooth Transition:** The balancing speed of the plank adjusts dynamically based on the torque difference; minor weight changes result in smooth, slow movements, while significant imbalances trigger faster stabilization.
 
 • **Intelligent Animation Synchronization:** Falling animations, physical calculations, and audio triggers are seamlessly synchronized to provide a cohesive sensory experience.
+![image](https://github.com/Caglakucuk/CaglaKucukSeesaw/blob/main/Ekran%20Resmi%202026-02-08%2000.33.19.png)
+
 
 ### 🛠️ Tech Stack
 Built with pure Vanilla Web Technologies for maximum performance:
