@@ -39,3 +39,7 @@ Open index.html in any modern web browser.
 Due to GitHub repository size limitations, the project walkthrough video is not stored directly in this repository. You can watch the full implementation explanation, including core logic, physics calculations, and design decisions, via the following YouTube link (Unlisted): 
 
 🔗 [https://youtube.com/watch?v=VIDEO_ID](https://youtu.be/2GYsvQxs9pU)
+
+## ⚖️ Interactive SeeSaw Simulation
+### 🚀 Click here to experience the Live Simulation
+https://caglakucuk.github.io/CaglaKucukSeesaw/
