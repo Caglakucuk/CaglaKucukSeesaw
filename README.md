@@ -33,3 +33,9 @@ Clone or download this repository to your local machine.
 Ensure the drop.mp3 file is located in the root directory.
 
 Open index.html in any modern web browser.
+
+## 🎥 Implementation Walkthrough Video 
+
+Due to GitHub repository size limitations, the project walkthrough video is not stored directly in this repository. You can watch the full implementation explanation, including core logic, physics calculations, and design decisions, via the following YouTube link (Unlisted): 
+
+🔗 [https://youtube.com/watch?v=VIDEO_ID](https://youtu.be/2GYsvQxs9pU)
