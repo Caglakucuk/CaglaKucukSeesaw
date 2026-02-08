@@ -1,4 +1,4 @@
-const voice= new Audio('drop.mp3');
+const voiceEffect= new Audio('drop.mp3');
 
 const DOM = {
     plank: document.getElementById('plank'),
@@ -9,8 +9,8 @@ const DOM = {
 }
 
 const CONFIG = {
-    MAX_ANGLE: 30,
-    ANGLE_DIVISOR: 500, 
+    MAXANGLE: 30,
+    DIVISOR: 300, 
 }
 
 let state = {
@@ -21,30 +21,30 @@ window.onload = () => {
     const saved = localStorage.getItem('seesaw_data');
     if (saved) {
         state.box = JSON.parse(saved);
-        updateSimulation(); 
+        applyTorque(); 
     }
 };
 
 DOM.plank.addEventListener('click', (e) => {
     const rect = DOM.plank.getBoundingClientRect();
-    const XPoint = e.clientX - rect.left;
+    const pointx = e.clientX - rect.left;
     const center = rect.width / 2;
-    const distance = XPoint - center;
+    const distance = pointx - center;
 
     const weight = Math.floor(Math.random() * 10) + 1;
     const addedBox = {
         weight: weight,
         distance: distance,
-        x: XPoint,
+        x: pointx,
         id: Date.now()
     };
     
     state.box.push(addedBox);
-    updateSimulation();
+    applyTorque();
     saveState();
 });
 
-function updateSimulation() {
+function applyTorque() {
     let leftTorque = 0;
     let rightTorque = 0;
     let leftWeight = 0;
@@ -60,11 +60,11 @@ function updateSimulation() {
         }
     });
 
-    let newAngle = (rightTorque - leftTorque) / CONFIG.ANGLE_DIVISOR;
-    let maxAngle = Math.max(-CONFIG.MAX_ANGLE, Math.min(CONFIG.MAX_ANGLE, newAngle));
+    let newAngle = (rightTorque - leftTorque) / CONFIG.DIVISOR;
+    let maxAngle = Math.max(-CONFIG.MAXANGLE, Math.min(CONFIG.MAXANGLE, newAngle));
 
-    const torqueDiff = Math.abs(rightTorque - leftTorque);
-    const speed = Math.max(0.2, 1.2 - (torqueDiff / 1000));
+    const netTorque = Math.abs(rightTorque - leftTorque);
+    const speed = Math.max(0.2, 1.2 - (netTorque / 1000));
     
     DOM.plank.style.transition = `transform ${speed}s cubic-bezier(0.17, 0.67, 0.83, 0.67)`;
 
@@ -74,10 +74,10 @@ function updateSimulation() {
     
     DOM.plank.style.transform = `rotate(${maxAngle}deg)`;
 
-    renderBoxes();
+    drawBoxes();
 }
 
-function renderBoxes() {
+function drawBoxes() {
     DOM.container.innerHTML = "";
     
     state.box.forEach(item => {
@@ -99,8 +99,8 @@ function renderBoxes() {
         if (Date.now() - item.id < 100) {
             boxStyle.style.animation = "boxFall 0.5s ease-in forwards";
             boxStyle.addEventListener('animationstart', () => {
-                voice.currentTime= 0;
-                voice.play();
+                voiceEffect.currentTime= 0;
+                voiceEffect.play();
             })
         } else {
             boxStyle.style.animation = "none";
@@ -119,5 +119,5 @@ resetBtn.addEventListener('click', () => {
     state.box = [];
     localStorage.removeItem('seesaw_data');
     DOM.container.innerHTML = "";
-    updateSimulation(true);
+    applyTorque(true);
 });
